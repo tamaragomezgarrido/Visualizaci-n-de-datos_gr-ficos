@@ -1,0 +1,39 @@
+library('UpSetR')
+library('grid')
+data <- c(
+  anosmia = 140,
+  cough = 57,
+  fatigue = 198,
+  diarrhea = 12,
+  breath = 5,
+  fever = 11,
+  "cough&fatigue" = 179,
+  "fatigue&fever" = 28,
+  "breath&fatigue" = 10,
+  "diarrhea&fatigue" = 43,
+  "anosmia&fatigue" = 281,
+  "breath&cough" = 1,
+  "anosmia&diarrhea&fatigue" = 64,
+  "breath&cough&fatigue" = 22,
+  "anosmia&cough&fatigue" = 259,
+  "anosmia&fever&fatigue" = 46,
+  "cough&fever&fatigue" = 54,
+  "cough&diarrhea" = 7,
+  "cough&diarrhea&fatigue" = 31,
+  "anosmia&breath&cough%fatigue" = 26,
+  "anosmia&cough&fatigue&fever" = 69,
+  "anosmia&breath&cough&diarrhea&fatigue" = 18,
+  "anosmia&breath&cough&fatigue&fever" = 17,
+  "breath&cough&fatigue&fever" = 11,
+  "breath&cough&diarrhea&fatigue" = 7,
+  "breath&cough&diarrhea&fatigue&fever" = 8,
+  "diarrhea&fatigue&fever" = 12,
+  "cough&diarrhea&fatigue&fever" = 17,
+  "anosmia&diarrhea&fatigue&fever" = 17,
+  "anosmia&diarrhea&cough&fatigue" = 41,
+  "anosmia&breath&cough&diarrhea&fatigue&fever" = 23,
+  "anosmia&cough&diarrhea&fatigue&fever" = 50
+)
+
+upset(fromExpression(data), order.by = "freq", decreasing = T)
+grid.text("Aparición síntomas en pacientes covid", x=0.65, y=0.95)
